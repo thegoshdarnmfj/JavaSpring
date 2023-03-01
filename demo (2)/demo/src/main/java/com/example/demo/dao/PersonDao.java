@@ -1,8 +1,7 @@
 package com.example.demo.dao;
 
+import java.util.List;
 import java.util.UUID;
-
-import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Person;
 public interface PersonDao {
@@ -14,4 +13,6 @@ public interface PersonDao {
 		insertPerson(new Person(name, id));
 	}
 	
+	public List<Person> selectAllPeople();
+
 }

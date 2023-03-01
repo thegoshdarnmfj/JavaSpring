@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,11 @@ public class PersonDaoFake implements PersonDao {
 		personDB.add(person);
 		return 1;
 	}
+
+	@Override
+	public List<Person> selectAllPeople() {
+		return personDB;
+	}
+
 
 }
