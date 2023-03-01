@@ -1,9 +1,22 @@
 package com.example.demo.api;
 
-public class PersonController {
+import org.springframework.beans.factory.annotation.Autowired;
 
-	public PersonController() {
-		// TODO Auto-generated constructor stub
+import com.example.demo.model.Person;
+import com.example.demo.service.PersonService;
+
+public class PersonController {
+	
+	private final PersonService personService;
+	
+	@Autowired
+	PersonController(PersonService personService){
+		this.personService = personService;
+		
+	}
+	
+	public void insertPerson(Person person) {
+		personService.insertPerson(person);
 	}
 
 }
