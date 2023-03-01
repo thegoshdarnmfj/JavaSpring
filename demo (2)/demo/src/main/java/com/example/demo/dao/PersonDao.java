@@ -5,7 +5,6 @@ import java.util.UUID;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.Person;
-@Repository
 public interface PersonDao {
 
 	public int insertPerson (Person person);

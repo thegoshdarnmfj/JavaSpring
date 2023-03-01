@@ -2,8 +2,10 @@ package com.example.demo.dao;
 
 import java.util.ArrayList;
 
-import com.example.demo.model.Person;
+import org.springframework.stereotype.Repository;
 
+import com.example.demo.model.Person;
+@Repository("fakeDao")
 public class PersonDaoFake implements PersonDao {
 	private ArrayList<Person> personDB = new ArrayList<>();
 
