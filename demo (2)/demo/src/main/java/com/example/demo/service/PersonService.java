@@ -1,9 +1,21 @@
 package com.example.demo.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.PersonDao;
+import com.example.demo.model.Person;
+
+@Service
 public class PersonService {
-
-	public PersonService() {
-		// TODO Auto-generated constructor stub
+	private final PersonDao personDao;
+	
+	@Autowired
+	public PersonService(PersonDao personDao) {
+		this.personDao = personDao;
 	}
-
+	
+	public void insertPerson(Person person){
+		personDao.insertPerson(person);
+	}
 }
