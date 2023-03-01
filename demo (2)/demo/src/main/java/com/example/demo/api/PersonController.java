@@ -1,6 +1,8 @@
 package com.example.demo.api;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,5 +34,15 @@ public class PersonController {
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
-
+	/*
+	public Optional<Person> selectPersonById(UUID id) {
+		return personDao.selectPersonById(id);
+	}
+	
+	public int deletePersonById(UUID id) {
+		
+	}
+	
+	public int updatePersonByID(UUID id, Person person);
+	}*/
 }
