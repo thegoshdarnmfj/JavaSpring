@@ -34,15 +34,16 @@ public class PersonController {
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
-	/*
-	public Optional<Person> selectPersonById(UUID id) {
-		return personDao.selectPersonById(id);
+	
+	public Person selectPersonById(UUID id) {
+		return personService.selectPersonById(id).orElse(null);
 	}
 	
 	public int deletePersonById(UUID id) {
-		
+		return personService.deletePersonById(id);
 	}
 	
-	public int updatePersonByID(UUID id, Person person);
-	}*/
+	public int updatePersonByID(UUID id, Person person) {
+		return personService.updatePersonByID(id, person);
+	}
 }

@@ -31,10 +31,12 @@ public class PersonService {
 		return personDao.selectPersonById(id);
 	}
 	
-	/*public int deletePersonById(UUID id) {
-		
+	public int deletePersonById(UUID id) {
+		return personDao.deletePersonById(id);
 	}
 	
-	public int updatePersonByID(UUID id, Person person);
-	}*/
+	public int updatePersonByID(UUID id, Person person) {
+		return personDao.updatePersonByID(id, person);
+	}
+
 }

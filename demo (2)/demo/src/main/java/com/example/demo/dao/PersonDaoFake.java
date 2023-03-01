@@ -25,14 +25,26 @@ public class PersonDaoFake implements PersonDao {
 
 	@Override
 	public int deletePersonById(UUID id) {
-		personDB.remove(selectPersonById(id)); //RETURN AND FIX
+		Optional<Person> personMaybe = selectPersonById(id);
+		if (personMaybe.isEmpty()) {
+			return 0;
+		}
+		personDB.remove(personMaybe.get());
 		return 0;
 	}
 
 	@Override
 	public int updatePersonByID(UUID id, Person person) {
-		// TODO Auto-generated method stub
-		return 0;
+		return selectPersonById(id)
+				.map(p -> {
+					int indexOfPersonToDelete = personDB.indexOf(person);
+					if (indexOfPersonToDelete >= 0) {
+						personDB.set(indexOfPersonToDelete, person);
+						return 1;
+					}
+					return 0;			
+		})
+		.orElse(0);
 	}
 
 	@Override
