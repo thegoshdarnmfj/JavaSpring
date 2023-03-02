@@ -1,12 +1,14 @@
 package com.example.demo.api;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,16 +36,17 @@ public class PersonController {
 	public List<Person> getAllPeople() {
 		return personService.getAllPeople();
 	}
-	
-	public Person selectPersonById(UUID id) {
+	@GetMapping(path = "{id}")
+	public Person selectPersonById(@PathVariable("id") UUID id) {
 		return personService.selectPersonById(id).orElse(null);
 	}
-	
-	public int deletePersonById(UUID id) {
+	@DeleteMapping(path = "{id}")
+	public int deletePersonById(@PathVariable("id") UUID id) {
 		return personService.deletePersonById(id);
 	}
-	
-	public int updatePersonByID(UUID id, Person person) {
+	@PutMapping(path = "{id}")
+	public int updatePersonByID(@PathVariable("id") UUID id, @RequestBody Person person) {
 		return personService.updatePersonByID(id, person);
 	}
+	
 }
